@@ -15,8 +15,8 @@ public class Main {
         //  List<String> animalsNameList = Arrays.asList("Волк", "Кролик");
 
         HashMap<String, Integer> animalsMaxCountMap = new HashMap<>();
-        animalsMaxCountMap.put("Волк", 30);
-        animalsMaxCountMap.put("Кролик", 150);
+        animalsMaxCountMap.put("Волк", 5); //30
+        animalsMaxCountMap.put("Кролик", 5); //150
 
         HashMap<String, Integer> animalsMaxStepMap = new HashMap<>();
         animalsMaxStepMap.put("Волк", 3);
@@ -71,14 +71,18 @@ public class Main {
 //        for (var oneAnimal:animalsList) {
 //            System.out.println(oneAnimal);
 //        }
+        for (var oneAnimal : animalsList) {
+            System.out.println(oneAnimal);
+        }
 
+        System.out.println("----------------------------------------------");
         // Движение животных на клетках
         for (var animal : animalsList) {
             for (var animalMaxStep : animalsMaxStepMap.entrySet()) {
                 if (animal.getName().equals(animalMaxStep.getKey())) {
                     //System.out.println("Совпали "+animal);
-                    Position ourPosition = new Position(0,0);
-                    animal.move(animalMaxStep.getValue(), ourPosition);
+                   // Position ourPosition = new Position(0,0);
+                   Animal.move(animalMaxStep.getValue(), animal);
                    // System.out.println("Совпали после движения "+animal);
                 }
 

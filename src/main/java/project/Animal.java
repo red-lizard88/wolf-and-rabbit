@@ -92,10 +92,11 @@ public abstract class Animal {
 //    }
 
 
-    public Position move(int maxStep, Position position) {
+    public static void move(int maxStep, Animal animal) {
 
-        int x = position.getX();
-        int y = position.getY();
+
+        int x = animal.getPosition().getX();
+        int y = animal.getPosition().getY();
 
 
         // Генерация рандомного шага от минимального равного 1 до максимального
@@ -112,7 +113,7 @@ public abstract class Animal {
         int oneTopOrBottom = randomStepTopOrBottom.nextInt(2); // Если 0 движение вверх, если 1 движение по вниз
 
 
-        System.out.println("Шаг:" + step + ", стартX:" + x + ", стартY:" + y);
+       // System.out.println("Шаг:" + step + ", стартX:" + x + ", стартY:" + y ); // + ", стартX:" + x + ", стартY:" + y
         for (int k = 0; k < step; k++) {
             if (oneStepXOrY == 0) {
                 if ((y != areaY - 1) && oneStepRightOrLeft == 0) {
@@ -146,12 +147,10 @@ public abstract class Animal {
             oneStepRightOrLeft = randomStepRightOrLeft.nextInt(2); // Если 0 движение вправо, если 1 движение по влево
             oneTopOrBottom = randomStepTopOrBottom.nextInt(2); // Если 0 движение вверх, если 1 движение по вниз
 
-            position.setX(x);
-            position.setY(y);
-
         }
+        animal.setPosition(new Position(x, y));
 
-        return position;
+        //return position;
     }
 
 
