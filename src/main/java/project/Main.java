@@ -76,7 +76,10 @@ public class Main {
         for (var animal : animalsList) {
             for (var animalMaxStep : animalsMaxStepMap.entrySet()) {
                 if (animal.getName().equals(animalMaxStep.getKey())) {
-                    animal.move(animalMaxStep.getValue(), animal.getPosition());
+                    //System.out.println("Совпали "+animal);
+                    Position ourPosition = new Position(0,0);
+                    animal.move(animalMaxStep.getValue(), ourPosition);
+                   // System.out.println("Совпали после движения "+animal);
                 }
 
 
